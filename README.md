@@ -1,10 +1,12 @@
-# 参考资料
+# Git
+
+## 参考资料
 
 - [Git使用基础篇](http://www.open-open.com/lib/view/open1332904495999.html)
 - [Git教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 - [Git飞行规则](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
 
-# 分支（branch）
+## 分支（branch）
 
 以前都是在 dev 上开发，这段时间由于项目频繁发版，所以考虑在新的 feature 分支上开发新功能，网上搜了一些资料，现在记录一下整个流程。
 
@@ -12,13 +14,13 @@
 
 进入 dev 分支
 
-```sh
+```bash
 git checkout dev
 ```
 
 基于 dev 分支创建新分支 `feature/A`。新开发的功能以 `feature` 开头，`A` 为功能名称，作为命名规范。
 
-```sh
+```bash
 git branch feature/A
 ```
 
@@ -28,7 +30,7 @@ git branch feature/A
 
 使用 `git branch -r` 查看远程分支是没有 `feature/A` 分支的。
 
-```sh
+```bash
 git checkout feature/A
 ```
 
@@ -36,14 +38,15 @@ git checkout feature/A
 
 注意：远程分支和本地分支的名称要保持一致。
 
-```sh
+```bash
 git push origin develop
 ```
 
 完成功能后需要删除本地和远程分支。先用 `git branch -a` 来查看所有分支，包括本地和远程分支。
 
 删除本地分支
-```sh
+
+```bash
 git branch -d feature/A
 
 // 强制删除
@@ -52,7 +55,7 @@ git branch -D
 
 删除远程分支
 
-```sh
+```bash
 git push origin --delete feature/A
 ```
 
@@ -73,39 +76,39 @@ git push origin --delete feature/A
 3. 按键盘左上角 `Esc`。
 4. 输入 `:wq`，回车。
 
-# 回滚（reset）
+## 回滚（reset）
 
 今天 pull 代码后，打包出现问题，但是找不到出问题的具体文件。使用排除法来查找具体是哪次提交的问题。
 先查看提交的 log，按字母 q 可以退出日志模式。
 
-```sh
+```bash
 git log
 ```
 
 回滚到具体的某个版本
 
-```sh
+```bash
 git reset --hard e377f60e28c8b84158
 ```
 
 强制提交
 
-```sh
+```bash
 git push -f origin master
 ```
 
 恢复版本到一个具体的状态，建议加上 `––hard` 参数，git支持无限次后悔
 
-```sh
+```bash
 回退到上一个版本：git reset ––hard HEAD^
 回退到上上一个版本：git reset ––hard HEAD^^
 回退到上N个版本：git reset ––hard HEAD~N（N是一个整数）
 回退到任意一个版本：git reset ––hard 版本号（版本号用7位即可）
 ```
 
-# 解决冲突
+## 解决冲突
 
-1. 先将本地修改存储起来
+1、先将本地修改存储起来
 
 ```bash
 git stash
@@ -114,19 +117,19 @@ git stash
 
 使用 `git stash list` 可以看到保存的信息
 
-2. pull内容
+2、pull内容
 
 ```bash
 git pull
 ```
 
-3. 还原暂存的内容
+3、还原暂存的内容
 
 ```bash
 git stash pop stash@{0}
 ```
 
-4. 解决文件中冲突的的部分
+4、解决文件中冲突的的部分
 
 其中 `Updated upstream` 和 `=====` 之间的内容就是 pull 下来的内容。
 
@@ -134,7 +137,7 @@ git stash pop stash@{0}
 
 碰到这种情况，git也不知道哪行内容是需要的，所以要自行确定需要的内容。解决完成之后，就可以正常的提交了。
 
-# `git warning: LF will be replaced by CRLF in` 解决办法
+## `git warning: LF will be replaced by CRLF in` 解决办法
 
 在使用git的时候，每次执行
 
@@ -158,11 +161,11 @@ git config core.autocrlf false
 
 参考资料：[git中配置autocrlf来正确处理crlf](http://blog.csdn.net/lysc_forever/article/details/42835203)
 
-# git bash 客户端添加 node_modules 目录时，遇到长路径提示 file name too long 的解决方案
+## git bash 客户端添加 node_modules 目录时，遇到长路径提示 file name too long 的解决方案
 
 当遇到以下错误时
 
-```
+```bash
 fatal: unable to stat 'node_modules/gulp-connect/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/parser.generated.js': Filename too long
 ```
 
@@ -184,6 +187,6 @@ git config core.longpaths true
 git config core.longpaths
 ```
 
-# 记住密码
+## 记住密码
 
 [Https方式使用Git@OSC设置密码的方式](http://git.oschina.net/oschina/git-osc/issues/2586)

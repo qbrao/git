@@ -2,9 +2,9 @@
 
 ## 参考资料
 
-- [Git使用基础篇](http://www.open-open.com/lib/view/open1332904495999.html)
-- [Git教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-- [Git飞行规则](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
+- [Git 使用基础篇](http://www.open-open.com/lib/view/open1332904495999.html)
+- [Git 教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+- [Git 飞行规则](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
 
 ## 分支（branch）
 
@@ -59,7 +59,9 @@ git branch -D
 git push origin --delete feature/A
 ```
 
-现在有个问题，在 `dev` 分支上面修复了 bug （本来应该新建一个分支来修复bug，现在暂时不考虑，直接在 `dev` 上修复），如何把 `dev` 分支修复后的代码合并到 `feature/A` 分支上？
+今天在同事电脑上使用 `git branch -r` 却看不到我最近新建的远程分支，要先使用 `git fetch` 更新一下才能看到。
+
+现在有个问题，在 `dev` 分支上面修复了 bug （本来应该新建一个分支来修复 bug，现在暂时不考虑，直接在 `dev` 上修复），如何把 `dev` 分支修复后的代码合并到 `feature/A` 分支上？
 
 - 第一步：切换到 `feature/A` 分支；
 - 第二步：合并分支 `git merge dev`；
@@ -69,7 +71,7 @@ git push origin --delete feature/A
 
 ![img](./images/merge-error.jpg)
 
-可以不管(直接下面3,4步)，如果要输入解释的话就需要:
+可以不管(直接下面 3,4 步)，如果要输入解释的话就需要:
 
 1. 按键盘字母 `i` 进入 insert 模式。
 2. 修改最上面那行黄色合并信息,可以不修改。
@@ -97,7 +99,7 @@ git reset --hard e377f60e28c8b84158
 git push -f origin master
 ```
 
-恢复版本到一个具体的状态，建议加上 `––hard` 参数，git支持无限次后悔
+恢复版本到一个具体的状态，建议加上 `––hard` 参数，git 支持无限次后悔
 
 ```bash
 回退到上一个版本：git reset ––hard HEAD^
@@ -117,7 +119,7 @@ git stash
 
 使用 `git stash list` 可以看到保存的信息
 
-2、pull内容
+2、pull 内容
 
 ```bash
 git pull
@@ -135,11 +137,11 @@ git stash pop stash@{0}
 
 `====` 和 `stashed changes` 之间的内容就是本地修改的内容。
 
-碰到这种情况，git也不知道哪行内容是需要的，所以要自行确定需要的内容。解决完成之后，就可以正常的提交了。
+碰到这种情况，git 也不知道哪行内容是需要的，所以要自行确定需要的内容。解决完成之后，就可以正常的提交了。
 
 ## `git warning: LF will be replaced by CRLF in` 解决办法
 
-在使用git的时候，每次执行
+在使用 git 的时候，每次执行
 
 ```bash
 git add .
@@ -157,9 +159,9 @@ warning: LF will be replaced by CRLF in XXXXXXXXXXXXXX.
 git config core.autocrlf false
 ```
 
-这样设置git的配置后在执行add操作就没有问题了。
+这样设置 git 的配置后在执行 add 操作就没有问题了。
 
-参考资料：[git中配置autocrlf来正确处理crlf](http://blog.csdn.net/lysc_forever/article/details/42835203)
+参考资料：[git 中配置 autocrlf 来正确处理 crlf](http://blog.csdn.net/lysc_forever/article/details/42835203)
 
 ## git bash 客户端添加 node_modules 目录时，遇到长路径提示 file name too long 的解决方案
 
@@ -189,4 +191,4 @@ git config core.longpaths
 
 ## 记住密码
 
-[Https方式使用Git@OSC设置密码的方式](http://git.oschina.net/oschina/git-osc/issues/2586)
+[Https 方式使用 Git@OSC 设置密码的方式](http://git.oschina.net/oschina/git-osc/issues/2586)

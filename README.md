@@ -6,6 +6,10 @@
 - [Git 教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 - [Git 飞行规则](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
 
+## 操作
+
+- [add](./add.md)
+
 ## 分支（branch）
 
 以前都是在 dev 上开发，这段时间由于项目频繁发版，所以考虑在新的 feature 分支上开发新功能，网上搜了一些资料，现在记录一下整个流程。

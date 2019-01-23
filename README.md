@@ -193,6 +193,18 @@ git config core.longpaths true
 git config core.longpaths
 ```
 
-## 记住密码
+## 帐号密码相关问题
+
+**记住帐号和密码**
 
 [Https 方式使用 Git@OSC 设置密码的方式](http://git.oschina.net/oschina/git-osc/issues/2586)
+
+
+**获取代码出现下面提示**
+
+```bash
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'http://xxx.com/xxxx/xxx.git/'
+```
+
+
